@@ -19,23 +19,23 @@ class Triangle
     @side_3
   end
 
-  
+
 
   def kind
      a,b,c = [self.side_1, self.side_2, self.side_3].sort
      raise TriangleError if a<= 0 or a + b <= c
-     if a == c 
-       
+     if a == c
+
        self.type = :equilateral
-     elsif a == b || b == c 
+     elsif a == b || b == c
        self.type = :isosceles
-     else 
+     else
        self.type = :scalene
-     
+
     end
   end
 
-    
+
 
 
   class TriangleError < StandardError
@@ -45,4 +45,3 @@ class Triangle
   end
 
 end
-
