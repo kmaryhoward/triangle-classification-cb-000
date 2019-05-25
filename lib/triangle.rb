@@ -30,10 +30,10 @@ class Triangle
       self.type = :equilateral
     elsif self.side_1 != self.side_2 && self.side_2 != self.side_3 && self.side_3 != self.side_1
       self.type = :scalene
-    
-   
+
+
   end
-  
+
     if !is_triangle?
       begin
         raise TriangleError
@@ -43,9 +43,9 @@ class Triangle
     else
     self.type
   end
-  
+
  self.type
-  
+
 end
 
 
