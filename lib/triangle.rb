@@ -19,35 +19,23 @@ class Triangle
     @side_3
   end
 
-  def is_triangle?
-   self.side_1 + self.side_2 > self.side_3 && self.side_2 + self.side_3 > self.side_1 && self.side_1 + self.side_3 > self.side_2
-  end
+  
 
   def kind
-
-      if self.side_1 == self.side_2 || self.side_2 == self.side_3 || self.side_3 == self.side_1
-        self.type = :isosceles
-      if self.side_1 == self.side_2 && self.side_2 == self.side_3
-        self.type = :equilateral
-      if self.side_1 != self.side_2 && self.side_2 != self.side_3 && self.side_3 != self.side_1
-        self.type = :scalene
+     a,b,c = [self.side_1, self.side_2, self.side_3].sort
+     raise TriangleError if a<= 0 or a + b <= c
+     if a == c 
+       
+       self.type = :equilateral
+     elsif a == b || b == c 
+       self.type = :isosceles
+     else 
+       self.type = :scalene
+     
     end
   end
-  end
 
-    if !is_triangle?
-      begin
-        raise TriangleError
-        rescue TriangleError => error
-          puts error.message
-        end
-    else
-    self.type
-  end
-
- self.type
-
-end
+    
 
 
   class TriangleError < StandardError
@@ -57,3 +45,4 @@ end
   end
 
 end
+
